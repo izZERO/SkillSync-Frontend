@@ -33,7 +33,6 @@ const App = () => {
   return (
     <>
       <Nav user={user} handleLogOut={handleLogOut} />
-      <h2>SkillSync</h2>
       <main>
         <Routes>
           <Route path="/register" element={<Register />} />
