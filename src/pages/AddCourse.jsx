@@ -39,7 +39,7 @@ const AddCourse = () => {
           <TextField
             required
             label="Course Title"
-            placeholder="Enter a Course Title"
+            placeholder="Enter a clear course title"
             name="title"
             type="text"
             onChange={handleChange}
@@ -48,7 +48,7 @@ const AddCourse = () => {
           <TextField
             required
             label="Description"
-            placeholder="Enter a description"
+            placeholder="Provide a brief overview of the course content and outcomes"
             name="description"
             type="text"
             multiline
@@ -59,7 +59,7 @@ const AddCourse = () => {
           <TextField
             required
             label="Objectives"
-            placeholder="Enter a objectives"
+            placeholder="State the main goals of this course"
             name="objective"
             type="text"
             multiline
@@ -70,7 +70,7 @@ const AddCourse = () => {
           <TextField
             required
             label="Level"
-            placeholder="Beginner, Intermediate, Advanced"
+            placeholder="e.g. Beginner, Intermediate, Advanced"
             name="level"
             type="text"
             onChange={handleChange}
@@ -85,7 +85,7 @@ const AddCourse = () => {
             onChange={handleChange}
             value={formValues.category}
           />
-          <Button variant="contained" endIcon={<SendIcon />}>
+          <Button variant="contained" endIcon={<SendIcon />} type="submit">
             Add Lessons
           </Button>
         </form>

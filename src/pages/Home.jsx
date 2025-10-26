@@ -37,6 +37,9 @@ const Home = () => {
         <Link to="/login">
           <button className="cursor-target">Log in</button>
         </Link>
+        <Link to="/addcourse">
+          <button className="cursor-target">Add course</button>
+        </Link>
       </div>
     </div>
   )

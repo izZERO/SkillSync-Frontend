@@ -7,10 +7,9 @@ import Nav from "./components/Nav"
 import Unauthorized from "./pages/Unauthorized"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
-
-import "./App.css"
-
 import Home from "./pages/Home"
+import AddCourse from "./pages/AddCourse"
+import "./App.css"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -43,9 +42,9 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           {/* <Route path="/student" element={<DashboardStudent />}></Route>
           <Route path="/instructor" element={<DashboardInstructor />}></Route>
-          <Route path="/course/:courseId" element={<CourseDetails />}></Route>
+          <Route path="/course/:courseId" element={<CourseDetails />}></Route> */}
           <Route path="/addcourse" element={<AddCourse />}></Route>
-          <Route
+          {/* <Route
             path="/course/:courseId/update"
             element={<UpdateCourse />}
           ></Route>
