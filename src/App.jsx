@@ -9,6 +9,8 @@ import Login from "./pages/Login"
 
 import "./App.css"
 
+import Home from "./pages/Home"
+
 const App = () => {
   const [user, setUser] = useState(null)
 
@@ -35,6 +37,7 @@ const App = () => {
       <Nav user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           {/* <Route path="/student" element={<DashboardStudent />}></Route>
