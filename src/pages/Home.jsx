@@ -1,6 +1,7 @@
 import LightRays from "../components/LightRays"
 import TrueFocus from "../components/TrueFocus"
 import TargetCursor from "../components/TargetCursor"
+import { Link } from "react-router-dom"
 import "../App.css"
 
 const Home = () => {
@@ -12,9 +13,9 @@ const Home = () => {
         raysSpeed={1}
         lightSpread={0.5}
         rayLength={3}
-        followMouse={false}
+        followMouse={true}
         mouseInfluence={0.1}
-        noiseAmount={0}
+        noiseAmount={0.2}
         distortion={0}
         className="custom-rays"
       />
@@ -25,13 +26,17 @@ const Home = () => {
         blurAmount={5}
         borderColor="blue"
         animationDuration={2}
-        pauseBetweenAnimations={1}
+        pauseBetweenAnimations={0.5}
       />
       <TargetCursor spinDuration={2} hideDefaultCursor={true} />
 
       <div className="buttons-container">
-        <button className="cursor-target">Sign up</button>
-        <button className="cursor-target">Log in</button>
+        <Link to="/register">
+          <button className="cursor-target">Sign up</button>
+        </Link>
+        <Link to="/login">
+          <button className="cursor-target">Log in</button>
+        </Link>
       </div>
     </div>
   )

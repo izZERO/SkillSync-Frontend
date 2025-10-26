@@ -4,6 +4,7 @@ import { CheckSession } from "./services/auth"
 
 import Nav from "./components/Nav"
 
+import Unauthorized from "./pages/Unauthorized"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
 
@@ -34,7 +35,7 @@ const App = () => {
 
   return (
     <>
-      <Nav user={user} handleLogOut={handleLogOut} />
+      {user ? <Nav user={user} handleLogOut={handleLogOut} /> : null}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
