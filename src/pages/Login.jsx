@@ -17,7 +17,11 @@ const SignIn = ({ setUser }) => {
     const userData = await SignInUser(formValues)
     setFormValues(initialState)
     setUser(userData)
-    navigate("/")
+    if (userData.role === "student") {
+      navigate("/studentDashboard")
+    } else {
+      navigate("/instructorDashboard")
+    }
   }
 
   return (
