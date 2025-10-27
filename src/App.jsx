@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { Route, Routes } from "react-router"
 import { CheckSession } from "./services/auth"
-
 import Nav from "./components/Nav"
 
 import Register from "./pages/Register"
