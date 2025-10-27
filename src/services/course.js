@@ -1,0 +1,28 @@
+import Client from "./api"
+
+export const AddNewCourse = async (data) => {
+  try {
+    const res = await Client.post("/courses", data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const GetAllCourse = async () => {
+  try {
+    const res = await Client.get("/courses")
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const ShowCourse = async (courseId) => {
+  try {
+    const res = await Client.get(`/courses/${courseId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

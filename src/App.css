@@ -218,3 +218,94 @@ canvas {
   color: black;
   box-shadow: 0 0 20px rgba(0, 0, 255, 0.5);
 }
+
+.course-details-page {
+  color: white;
+  min-height: 100vh;
+  padding: 3rem 6vw;
+  box-sizing: border-box;
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.course-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.course-buttons .MuiButton-root {
+  text-transform: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.course-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.course-description {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+}
+
+.chip-level {
+  background-color: #aa00ff !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.chip-category {
+  background-color: #00c853 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.custom-tab-list .MuiTab-root {
+  color: white !important;
+  text-transform: none !important;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.custom-tab-list .Mui-selected {
+  color: #00bcd4 !important;
+  font-weight: 600;
+}
+
+.MuiTabs-indicator {
+  background-color: #00bcd4 !important;
+}
+
+.custom-tab-panel {
+  padding: 2rem 0;
+}
+
+.custom-tab-panel h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.custom-tab-panel h5 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.9;
+}

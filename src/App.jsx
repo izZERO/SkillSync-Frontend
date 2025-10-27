@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
 import { Route, Routes } from "react-router"
 import { CheckSession } from "./services/auth"
+import { GetAllCourse } from "./services/course.js"
 
 import Nav from "./components/Nav"
 
 import Unauthorized from "./pages/Unauthorized"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
-
+import Dashboard from "./pages/Dashboard"
+import CourseDetails from "./pages/CourseDetails"
 import "./App.css"
 
 import Home from "./pages/Home"
@@ -33,6 +35,17 @@ const App = () => {
     }
   }, [])
 
+  const [items, setItems] = useState([])
+
+  const handleItems = async () => {
+    const data = await GetAllCourse()
+    setItems(data)
+  }
+
+  useEffect(() => {
+    handleItems()
+  }, [])
+
   return (
     <>
       {user ? <Nav user={user} handleLogOut={handleLogOut} /> : null}
@@ -42,9 +55,10 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           {/* <Route path="/student" element={<DashboardStudent />}></Route>
-          <Route path="/instructor" element={<DashboardInstructor />}></Route>
-          <Route path="/course/:courseId" element={<CourseDetails />}></Route>
-          <Route path="/addcourse" element={<AddCourse />}></Route>
+          <Route path="/instructor" element={<DashboardInstructor />}></Route> */}
+          <Route path="/dashboard" element={<Dashboard courses={items} />} />
+          <Route path="/course/:courseId" element={<CourseDetails />} />
+          {/* <Route path="/addcourse" element={<AddCourse />}></Route>
           <Route
             path="/course/:courseId/update"
             element={<UpdateCourse />}
