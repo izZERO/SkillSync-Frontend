@@ -15,8 +15,9 @@ return(
   <h2>Profile</h2>
 
   </div>
-  <img >
+  // <img >
 
-  </img>
+  // </img>
 )
+
 export default Profile
