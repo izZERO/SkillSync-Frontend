@@ -1,6 +1,9 @@
 import { useState } from "react"
 import { SignInUser } from "../services/auth"
 import { useNavigate } from "react-router-dom"
+import { BASE_URL } from "../services/api.js"
+import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
 
 const SignIn = ({ setUser }) => {
   const navigate = useNavigate()
@@ -25,38 +28,50 @@ const SignIn = ({ setUser }) => {
   }
 
   return (
-    <div className="col signin">
-      <img src="/images/signin.png" alt="Sign In Title Image" />
-      <form className="col" onSubmit={handleSubmit}>
-        <div className="input-wrapper">
-          <label htmlFor="email">Email</label>
-          <input
-            name="email"
-            type="email"
-            placeholder="example@example.com"
-            onChange={handleChange}
-            value={formValues.email}
-            required
-            autoComplete="email"
+    <>
+      <div className="login-container">
+        <div className="login-area">
+          <img
+            src={`${BASE_URL}/public/images/skillsynclogo.png`}
+            className="login-img"
+            alt="Sign In Title Image"
           />
+
+          <form onSubmit={handleSubmit} className="login-form">
+            <TextField
+              name="email"
+              type="email"
+              placeholder="example@example.com"
+              onChange={handleChange}
+              value={formValues.email}
+              required
+              autoComplete="email"
+              className="login-field"
+            />
+
+            <TextField
+              name="password"
+              type="password"
+              placeholder="password"
+              onChange={handleChange}
+              value={formValues.password}
+              required
+              autoComplete="off"
+              className="login-field"
+            />
+
+            <Button
+              type="submit"
+              variant="outlined"
+              className="login-button"
+              disabled={!formValues.email || !formValues.password}
+            >
+              Sign In
+            </Button>
+          </form>
         </div>
-        <div className="input-wrapper">
-          <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            placeholder="password"
-            onChange={handleChange}
-            value={formValues.password}
-            required
-            autoComplete="off"
-          />
-        </div>
-        <button disabled={!formValues.email || !formValues.password}>
-          Sign In
-        </button>
-      </form>
-    </div>
+      </div>
+    </>
   )
 }
 
