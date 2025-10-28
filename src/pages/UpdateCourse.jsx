@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
-import { EditCourse } from "../services/course.js"
-import { ShowCourse } from "../services/course.js"
+import { EditCourse } from "../services/utils.js"
+import { ShowCourse } from "../services/utils.js"
 
 import SendIcon from "@mui/icons-material/Send"
 import Button from "@mui/material/Button"

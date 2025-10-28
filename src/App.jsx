@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { Route, Routes, useNavigate } from "react-router"
 import { CheckSession } from "./services/auth"
-import { GetAllCourse } from "./services/course.js"
 
 import Nav from "./components/Nav"
 
@@ -10,6 +9,8 @@ import Register from "./pages/Register"
 import Login from "./pages/Login"
 import Home from "./pages/Home"
 import AddCourse from "./pages/AddCourse"
+import CourseDetails from "./pages/CourseDetails"
+import UpdateCourse from "./pages/UpdateCourse.jsx"
 import StudentDashboard from "./pages/StudentDashboard"
 import "./App.css"
 
@@ -33,17 +34,6 @@ const App = () => {
     if (token) {
       checkToken()
     }
-  }, [])
-
-  const [items, setItems] = useState([])
-
-  const handleItems = async () => {
-    const data = await GetAllCourse()
-    setItems(data)
-  }
-
-  useEffect(() => {
-    handleItems()
   }, [])
 
   return (
@@ -70,14 +60,10 @@ const App = () => {
               )
             }
           />
-          <Route path="/addcourse" element={<AddCourse />}></Route>
-          {/*<Route path="/course/:courseId" element={<CourseDetails />}></Route>
-
-          {/* <Route
-            path="/course/:courseId/update"
-            element={<UpdateCourse />}
-          ></Route>
-          <Route path="/addlessons" element={<AddLessons />}></Route>
+          <Route path="/addcourse" element={<AddCourse />} />
+          <Route path="/courses/:courseId" element={<CourseDetails />} />
+          <Route path="/courses/:courseId/edit" element={<UpdateCourse />} />
+          {/*<Route path="/addlessons" element={<AddLessons />}></Route>
           <Route
             path="/lesson/:lessonId/update"
             element={<UpdateLesson />}

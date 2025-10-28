@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { AddNewCourse } from "../services/course.js"
+import { AddNewCourse } from "../services/utils.js"
 
 import Button from "@mui/material/Button"
 import SendIcon from "@mui/icons-material/Send"

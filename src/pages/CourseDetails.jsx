@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { ShowCourse } from "../services/course.js"
-import { DeleteCourse } from "../services/course.js"
+import { ShowCourse } from "../services/utils.js"
+import { DeleteCourse } from "../services/utils.js"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 
