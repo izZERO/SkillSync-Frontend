@@ -52,8 +52,7 @@ const Nav = ({ user, handleLogOut }) => {
             src={`${BASE_URL}/public/images/skillsynclogo.png`}
             alt="SkillSync Logo"
             style={{
-              width: "100px",
-              marginRight: "12px",
+              width: "80px",
             }}
           />
         </Box>
