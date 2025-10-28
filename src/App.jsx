@@ -7,11 +7,13 @@ import Nav from "./components/Nav"
 import Unauthorized from "./pages/Unauthorized"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
-import StudentDashboard from "./pages/StudentDashboard"
-
-import "./App.css"
-
 import Home from "./pages/Home"
+import AddCourse from "./pages/AddCourse"
+import CourseDetails from "./pages/CourseDetails"
+import UpdateCourse from "./pages/UpdateCourse.jsx"
+import StudentDashboard from "./pages/StudentDashboard"
+import InstructorDashboard from "./pages/InstructorDashboard"
+import "./App.css"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -52,20 +54,17 @@ const App = () => {
           <Route
             path="/instructorDashboard"
             element={
-              user?.role === "instructor  " ? (
+              user?.role === "instructor" ? (
                 <InstructorDashboard />
               ) : (
                 <Unauthorized />
               )
             }
           />
-          {/*<Route path="/course/:courseId" element={<CourseDetails />}></Route>
-          <Route path="/addcourse" element={<AddCourse />}></Route>
-          <Route
-            path="/course/:courseId/update"
-            element={<UpdateCourse />}
-          ></Route>
-          <Route path="/addlessons" element={<AddLessons />}></Route>
+          <Route path="/addcourse" element={<AddCourse />} />
+          <Route path="/courses/:courseId" element={<CourseDetails />} />
+          <Route path="/courses/:courseId/edit" element={<UpdateCourse />} />
+          {/*<Route path="/addlessons" element={<AddLessons />}></Route>
           <Route
             path="/lesson/:lessonId/update"
             element={<UpdateLesson />}

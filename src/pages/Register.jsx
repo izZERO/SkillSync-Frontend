@@ -1,6 +1,9 @@
 import { useState } from "react"
 import { RegisterUser } from "../services/auth.js"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
+import { BASE_URL } from "../services/api.js"
+import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
 
 const Register = () => {
   let navigate = useNavigate()
@@ -25,68 +28,79 @@ const Register = () => {
   }
 
   return (
-    <div className="col register">
-      <img src="/images/register.png" alt="Register Title Image" />
-      <form onSubmit={handleSubmit}>
-        <div className="input-wrapper">
-          <label htmlFor="name">Name</label>
-          <input
-            name="name"
-            type="text"
-            placeholder="full name"
-            onChange={handleChange}
-            value={formValues.name}
-            required
-            autoComplete="name"
+    <>
+      <div className="login-container">
+        <div className="login-area">
+          <img
+            src={`${BASE_URL}/public/images/skillsynclogo.png`}
+            className="login-img"
           />
+
+          <form onSubmit={handleSubmit} className="login-form">
+            <TextField
+              name="name"
+              type="text"
+              placeholder="Full Name"
+              onChange={handleChange}
+              value={formValues.name}
+              required
+              autoComplete="name"
+              className="login-field"
+            />
+
+            <TextField
+              name="email"
+              type="email"
+              placeholder="example@example.com"
+              onChange={handleChange}
+              value={formValues.email}
+              required
+              autoComplete="email"
+              className="login-field"
+            />
+
+            <TextField
+              name="password"
+              type="password"
+              placeholder="password"
+              onChange={handleChange}
+              value={formValues.password}
+              required
+              autoComplete="off"
+              className="login-field"
+            />
+
+            <TextField
+              name="confirmPassword"
+              type="password"
+              placeholder="confirm password"
+              onChange={handleChange}
+              value={formValues.confirmPassword}
+              required
+              autoComplete="off"
+              className="login-field"
+            />
+
+            <Button
+              type="submit"
+              variant="outlined"
+              className="login-button"
+              disabled={
+                !formValues.email ||
+                !formValues.password ||
+                !formValues.name ||
+                formValues.password !== formValues.confirmPassword
+              }
+            >
+              Register
+            </Button>
+          </form>
+          <Link to="/login" className="auth-link">
+            Already have an account? Sign in here
+          </Link>
         </div>
-        <div className="input-wrapper">
-          <label htmlFor="email">Email</label>
-          <input
-            name="email"
-            type="email"
-            placeholder="example@example.com"
-            onChange={handleChange}
-            value={formValues.email}
-            required
-            autoComplete="email"
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            placeholder="password"
-            onChange={handleChange}
-            value={formValues.password}
-            required
-            autoComplete="off"
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            name="confirmPassword"
-            type="password"
-            placeholder="confirm password"
-            onChange={handleChange}
-            value={formValues.confirmPassword}
-            required
-            autoComplete="off"
-          />
-        </div>
-        <button
-          disabled={
-            !formValues.email ||
-            (!formValues.password &&
-              formValues.password === formValues.confirmPassword)
-          }
-        >
-          Register
-        </button>
-      </form>
-    </div>
+      </div>
+    </>
   )
 }
 
