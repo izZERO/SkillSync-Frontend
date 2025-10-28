@@ -26,6 +26,7 @@ const Course = ({ course }) => {
         sx={{
           minWidth: "275px",
           maxWidth: "500px",
+          height: "186px",
           backgroundColor: "#232830",
           color: "white",
           borderRadius: "16px",
@@ -43,6 +44,7 @@ const Course = ({ course }) => {
         <CardContent
           sx={{
             display: "flex",
+            height: "100%",
             flexDirection: "column",
             background:
               "linear-gradient(135deg, rgba(118, 109, 226, 0.05) 0%, rgba(118, 109, 226, 0.02) 100%)",
