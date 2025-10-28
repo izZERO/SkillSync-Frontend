@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { SignInUser } from "../services/auth"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { BASE_URL } from "../services/api.js"
 import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
@@ -69,6 +69,9 @@ const SignIn = ({ setUser }) => {
               Sign In
             </Button>
           </form>
+          <Link to="/register" className="auth-link">
+            Don't have an account? Sign up here
+          </Link>
         </div>
       </div>
     </>

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { RegisterUser } from "../services/auth.js"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { BASE_URL } from "../services/api.js"
 import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
@@ -95,6 +95,9 @@ const Register = () => {
               Register
             </Button>
           </form>
+          <Link to="/login" className="auth-link">
+            Already have an account? Sign in here
+          </Link>
         </div>
       </div>
     </>

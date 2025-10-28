@@ -288,13 +288,17 @@ canvas {
 }
 
 .login-img {
-  margin-top: -70px;
-  width: 350px;
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: -20px;
 }
 
 .login-form {
   display: flex;
-  margin-top: -120px;
+  margin-top: -60px;
   flex-direction: column;
   row-gap: 8px;
 }
@@ -323,6 +327,20 @@ canvas {
 .login-button:hover {
   transform: translateY(-4px);
   transition: all 0.3s ease-in-out;
+}
+
+.auth-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .course-details-page {
