@@ -1,10 +1,9 @@
 import Stack from "@mui/material/Stack"
 import { Tabs, Tab } from "@mui/material"
 import TabPanel from "../components/TabPanel"
-import { useEffect, useState } from "react"
-import Course from "../components/Course"
+import { useState } from "react"
 import StudentCoursesTab from "../components/StudentCoursesTab"
-import AllCourses from "../components/AllCourses"
+import AllCourses from "../components/AllCoursesTab"
 
 const StudentDashboard = () => {
   const [tab, setTab] = useState(0)

@@ -45,3 +45,8 @@ export const DeleteCourse = async (courseId) => {
     throw error
   }
 }
+
+export const fetchInstructorCourses = async () => {
+  const response = await Client.get("/courses/instructor")
+  return response
+}

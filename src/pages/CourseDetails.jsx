@@ -59,7 +59,7 @@ const CourseDetails = () => {
           </div>
         </div>
 
-        <h3 className="course-description">{details.description}</h3>
+        <h3 className="course-description">{details.objective}</h3>
 
         <div className="chips-container">
           <Chip className="chip-level" label={details.level} />
@@ -79,14 +79,17 @@ const CourseDetails = () => {
             >
               <Tab label="About" value="1" />
               <Tab label="Content" value="2" />
+              <Tab label="Rating & Review" value="3" />
             </TabList>
           </Box>
           <TabPanel value="1" className="custom-tab-panel">
-            <h3>Learning objectives</h3>
-            <h5>{details.objective}</h5>
+            <h5>{details.description}</h5>
           </TabPanel>
           <TabPanel value="2" className="custom-tab-panel">
             Item Two
+          </TabPanel>
+          <TabPanel value="3" className="custom-tab-panel">
+            Item Three
           </TabPanel>
         </TabContext>
       </div>
