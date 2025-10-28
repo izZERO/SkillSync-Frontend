@@ -11,6 +11,7 @@ import Home from "./pages/Home"
 import AddCourse from "./pages/AddCourse"
 import StudentDashboard from "./pages/StudentDashboard"
 import InstructorDashboard from "./pages/InstructorDashboard"
+import AddLessons from "./pages/AddLessons"
 import "./App.css"
 
 const App = () => {
@@ -59,15 +60,15 @@ const App = () => {
               )
             }
           />
-          <Route path="/addcourse" element={<AddCourse />}></Route>
-          {/*<Route path="/course/:courseId" element={<CourseDetails />}></Route>
+          <Route path="/addcourse" element={<AddCourse />} />
+          {/* <Route path="/course/:courseId" element={<CourseDetails />}></Route>
 
-          {/* <Route
+          <Route
             path="/course/:courseId/update"
             element={<UpdateCourse />}
-          ></Route>
-          <Route path="/addlessons" element={<AddLessons />}></Route>
-          <Route
+          ></Route> */}
+          <Route path="/courses/courseId/lessons" element={<AddLessons />} />
+          {/*  <Route
             path="/lesson/:lessonId/update"
             element={<UpdateLesson />}
           ></Route>
