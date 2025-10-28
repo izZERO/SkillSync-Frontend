@@ -1,25 +1,18 @@
 import Stack from "@mui/material/Stack"
-// import SharedTabs from "../components/SharedTabs"
+import { Tabs, Tab } from "@mui/material"
+import TabPanel from "../components/TabPanel"
 import { useEffect, useState } from "react"
 import Course from "../components/Course"
-
-import { fetchAllCourses } from "../services/utils"
+import StudentCoursesTab from "../components/StudentCoursesTab"
+import AllCourses from "../components/AllCourses"
 
 const StudentDashboard = () => {
-  const [tabValue, setTabValue] = useState("0")
-  const [courses, setCourses] = useState(null)
+  const [tab, setTab] = useState(0)
 
-  useEffect(() => {
-    const handleCourses = async () => {
-      const response = await fetchAllCourses()
-      setCourses(response.data)
-    }
-    handleCourses()
-  }, [])
-
-  const handleTabChange = (event, newTabValue) => {
-    setTabValue(newTabValue)
+  const handleTabChange = (event, newTab) => {
+    setTab(newTab)
   }
+
   return (
     <>
       <Stack
@@ -29,28 +22,42 @@ const StudentDashboard = () => {
           alignItems: "center",
         }}
       >
-        <p className="student-catchphrase">Learn Full Stack Developement</p>
+        <p className="student-catchphrase">Learn Full Stack Development</p>
         <p className="student-catchphrase-second">
           Kickstart your career, Learn, Grow, and be what you've always wanted
           to be!
         </p>
       </Stack>
-
-      <Stack
-        direction="row"
-        spacing={2}
-        useFlexGap
+      <Tabs
+        variant="fullWidth"
+        value={tab}
+        onChange={handleTabChange}
         sx={{
-          m: "0 40px",
+          m: " 0px 40px",
           mt: "40px",
-          flexWrap: "wrap",
+          border: "2px solid rgba(118, 109, 226, 0.2)",
         }}
       >
-        {courses?.map((course) => (
-          <Course key={course._id} course={course} />
-        ))}
-        {/* <SharedTabs tabValue={tabValue} handleTabChange={handleTabChange} /> */}
-      </Stack>
+        <Tab
+          label="My Courses"
+          sx={{
+            color: "white",
+          }}
+        />
+        <Tab
+          label="All Courses"
+          sx={{
+            color: "white",
+          }}
+        />
+      </Tabs>
+
+      <TabPanel value={tab} index={0}>
+        <StudentCoursesTab />
+      </TabPanel>
+      <TabPanel value={tab} index={1}>
+        <AllCourses />
+      </TabPanel>
     </>
   )
 }
