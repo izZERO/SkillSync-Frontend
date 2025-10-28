@@ -1,15 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
-import { AddNewCourse } from "../services/utils.js"
+import { EditCourse } from "../services/utils.js"
+import { ShowCourse } from "../services/utils.js"
 
-import Button from "@mui/material/Button"
 import SendIcon from "@mui/icons-material/Send"
+import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
 
-import "../App.css"
-
-const AddCourse = () => {
+const UpdateCourse = () => {
+  const { courseId } = useParams()
   let navigate = useNavigate()
+
   const initialState = {
     title: "",
     description: "",
@@ -17,18 +19,23 @@ const AddCourse = () => {
     level: "",
     category: "",
   }
-
   const [formValues, setFormValues] = useState(initialState)
+  useEffect(() => {
+    const updateCourse = async () => {
+      const data = await ShowCourse(courseId)
+      setFormValues(data)
+    }
+    updateCourse()
+  }, [courseId])
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await AddNewCourse(formValues)
+    await EditCourse(courseId, formValues)
     setFormValues(initialState)
-    navigate("/")
+    navigate(`/courses/${courseId}`)
   }
 
   return (
@@ -39,7 +46,6 @@ const AddCourse = () => {
           <TextField
             required
             label="Course Title"
-            placeholder="Enter a clear course title"
             name="title"
             type="text"
             onChange={handleChange}
@@ -48,7 +54,6 @@ const AddCourse = () => {
           <TextField
             required
             label="Description"
-            placeholder="Provide a brief overview of the course content and outcomes"
             name="description"
             type="text"
             multiline
@@ -59,7 +64,6 @@ const AddCourse = () => {
           <TextField
             required
             label="Objectives"
-            placeholder="State the main goals of this course"
             name="objective"
             type="text"
             multiline
@@ -70,7 +74,6 @@ const AddCourse = () => {
           <TextField
             required
             label="Level"
-            placeholder="e.g. Beginner, Intermediate, Advanced"
             name="level"
             type="text"
             onChange={handleChange}
@@ -79,14 +82,13 @@ const AddCourse = () => {
           <TextField
             required
             label="Category"
-            placeholder="Enter a category"
             name="category"
             type="text"
             onChange={handleChange}
             value={formValues.category}
           />
           <Button variant="contained" endIcon={<SendIcon />} type="submit">
-            Add Lessons
+            Update Course
           </Button>
         </form>
       </div>
@@ -94,4 +96,4 @@ const AddCourse = () => {
   )
 }
 
-export default AddCourse
+export default UpdateCourse

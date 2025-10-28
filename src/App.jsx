@@ -9,6 +9,8 @@ import Register from "./pages/Register"
 import Login from "./pages/Login"
 import Home from "./pages/Home"
 import AddCourse from "./pages/AddCourse"
+import CourseDetails from "./pages/CourseDetails"
+import UpdateCourse from "./pages/UpdateCourse.jsx"
 import StudentDashboard from "./pages/StudentDashboard"
 import InstructorDashboard from "./pages/InstructorDashboard"
 import AddLessons from "./pages/AddLessons"
@@ -61,14 +63,10 @@ const App = () => {
             }
           />
           <Route path="/addcourse" element={<AddCourse />} />
-          {/* <Route path="/course/:courseId" element={<CourseDetails />}></Route>
-
+          <Route path="/courses/:courseId" element={<CourseDetails />} />
+          <Route path="/courses/:courseId/edit" element={<UpdateCourse />} />
+          {/*<Route path="/addlessons" element={<AddLessons />}></Route>
           <Route
-            path="/course/:courseId/update"
-            element={<UpdateCourse />}
-          ></Route> */}
-          <Route path="/courses/courseId/lessons" element={<AddLessons />} />
-          {/*  <Route
             path="/lesson/:lessonId/update"
             element={<UpdateLesson />}
           ></Route>
