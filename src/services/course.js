@@ -26,3 +26,12 @@ export const ShowCourse = async (courseId) => {
     throw error
   }
 }
+
+export const EditCourse = async (courseId) => {
+  try {
+    const res = await Client.put(`/courses/${courseId}/edit`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

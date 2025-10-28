@@ -10,6 +10,7 @@ import Register from "./pages/Register"
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import CourseDetails from "./pages/CourseDetails"
+import UpdateCourse from "./pages/UpdateCourse"
 import "./App.css"
 
 import Home from "./pages/Home"
@@ -58,12 +59,9 @@ const App = () => {
           <Route path="/instructor" element={<DashboardInstructor />}></Route> */}
           <Route path="/dashboard" element={<Dashboard courses={items} />} />
           <Route path="/course/:courseId" element={<CourseDetails />} />
-          {/* <Route path="/addcourse" element={<AddCourse />}></Route>
-          <Route
-            path="/course/:courseId/update"
-            element={<UpdateCourse />}
-          ></Route>
-          <Route path="/addlessons" element={<AddLessons />}></Route>
+          {/* <Route path="/addcourse" element={<AddCourse />}></Route> */}
+          <Route path="/course/:courseId/update" element={<UpdateCourse />} />
+          {/*<Route path="/addlessons" element={<AddLessons />}></Route>
           <Route
             path="/lesson/:lessonId/update"
             element={<UpdateLesson />}

@@ -264,7 +264,7 @@ canvas {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.6rem;
 }
 
 .chip-level {
@@ -277,6 +277,10 @@ canvas {
   background-color: #00c853 !important;
   color: white !important;
   font-weight: 600 !important;
+}
+
+.btn-enroll {
+  margin-bottom: 1.6rem !important;
 }
 
 .custom-tab-list .MuiTab-root {

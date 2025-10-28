@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ShowCourse } from "../services/course.js"
+import { Link } from "react-router-dom"
 
 import * as React from "react"
 import Box from "@mui/material/Box"
@@ -10,13 +11,11 @@ import TabList from "@mui/lab/TabList"
 import TabPanel from "@mui/lab/TabPanel"
 import Chip from "@mui/material/Chip"
 import Button from "@mui/material/Button"
-import { teal } from "@mui/material/colors"
 
 const CourseDetails = () => {
   const { courseId } = useParams()
 
   const [details, setDetails] = useState([])
-
   const [value, setValue] = React.useState("1")
 
   const handleChange = (event, newValue) => {
@@ -37,18 +36,25 @@ const CourseDetails = () => {
         <div className="course-header">
           <h1 className="course-title">{details.title}</h1>
           <div className="course-buttons">
-            <Button variant="contained">Edit Course</Button>
+            <Link to={`/course/${details._id}/update`}>
+              <Button variant="contained">Edit Course</Button>
+            </Link>
             <Button variant="contained" color="error">
               Delete Course
             </Button>
           </div>
         </div>
+
         <h3 className="course-description">{details.description}</h3>
 
         <div className="chips-container">
           <Chip className="chip-level" label={details.level} />
           <Chip className="chip-category" label={details.category} />
         </div>
+
+        <Button variant="contained" color="success" className="btn-enroll">
+          Enroll
+        </Button>
 
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
