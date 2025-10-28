@@ -21,7 +21,7 @@ const Course = ({ course }) => {
     difficultyColor = "error"
   }
   return (
-    <Link to={`/courses/${course._id}`}>
+    <Link to={`/courses/${course._id}`} className="link-course-details">
       <Card
         sx={{
           minWidth: "275px",

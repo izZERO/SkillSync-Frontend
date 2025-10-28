@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { ShowCourse } from "../services/utils.js"
-import { DeleteCourse } from "../services/utils.js"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { ShowCourse } from "../services/utils.js"
+import { DeleteCourse } from "../services/utils.js"
 
 import * as React from "react"
 import Box from "@mui/material/Box"
@@ -34,7 +34,7 @@ const CourseDetails = () => {
   }, [courseId])
 
   const handleDelete = async () => {
-    await DeleteCourse(courseId)
+    await DeleteCourse(details._id)
     navigate("/courses")
   }
 
@@ -47,11 +47,15 @@ const CourseDetails = () => {
             <Link to={`/courses/${details._id}/edit`}>
               <Button variant="contained">Edit Course</Button>
             </Link>
-            <form onSubmit={handleDelete}>
-              <Button variant="contained" color="error">
-                Delete Course
-              </Button>
-            </form>
+            <Button
+              variant="contained"
+              color="error"
+              onClick={() => {
+                handleDelete()
+              }}
+            >
+              Delete Course
+            </Button>
           </div>
         </div>
 

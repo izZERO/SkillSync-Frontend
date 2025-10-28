@@ -388,3 +388,8 @@ canvas {
 .add-course-form > .MuiTextField-root {
   margin-bottom: 20px;
 }
+
+/* course link */
+.link-course-details {
+  text-decoration: none;
+}
