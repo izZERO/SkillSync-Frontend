@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ShowCourse } from "../services/course.js"
+import { DeleteCourse } from "../services/course.js"
+import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 import * as React from "react"
@@ -14,6 +16,7 @@ import Button from "@mui/material/Button"
 
 const CourseDetails = () => {
   const { courseId } = useParams()
+  let navigate = useNavigate()
 
   const [details, setDetails] = useState([])
   const [value, setValue] = React.useState("1")
@@ -30,18 +33,25 @@ const CourseDetails = () => {
     getDetailsByCourse()
   }, [courseId])
 
+  const handleDelete = async () => {
+    await DeleteCourse(courseId)
+    navigate("/courses")
+  }
+
   return (
     <>
       <div className="course-details-page">
         <div className="course-header">
           <h1 className="course-title">{details.title}</h1>
           <div className="course-buttons">
-            <Link to={`/course/${details._id}/update`}>
+            <Link to={`/courses/${details._id}/edit`}>
               <Button variant="contained">Edit Course</Button>
             </Link>
-            <Button variant="contained" color="error">
-              Delete Course
-            </Button>
+            <form onSubmit={handleDelete}>
+              <Button variant="contained" color="error">
+                Delete Course
+              </Button>
+            </form>
           </div>
         </div>
 

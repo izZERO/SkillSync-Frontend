@@ -57,10 +57,10 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           {/* <Route path="/student" element={<DashboardStudent />}></Route>
           <Route path="/instructor" element={<DashboardInstructor />}></Route> */}
-          <Route path="/dashboard" element={<Dashboard courses={items} />} />
-          <Route path="/course/:courseId" element={<CourseDetails />} />
+          <Route path="/courses" element={<Dashboard courses={items} />} />
+          <Route path="/courses/:courseId" element={<CourseDetails />} />
           {/* <Route path="/addcourse" element={<AddCourse />}></Route> */}
-          <Route path="/course/:courseId/update" element={<UpdateCourse />} />
+          <Route path="/courses/:courseId/edit" element={<UpdateCourse />} />
           {/*<Route path="/addlessons" element={<AddLessons />}></Route>
           <Route
             path="/lesson/:lessonId/update"

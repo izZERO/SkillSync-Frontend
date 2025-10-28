@@ -9,7 +9,7 @@ const Dashboard = ({ courses }) => {
           <h3>{course.title}</h3>
           <h3>{course.description}</h3>
           <h3>{course.level}</h3>
-          <Link to={`/course/${course._id}`}>
+          <Link to={`/courses/${course._id}`}>
             <button>More Details</button>
           </Link>
         </div>

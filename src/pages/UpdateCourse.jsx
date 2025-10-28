@@ -20,7 +20,6 @@ const UpdateCourse = () => {
     category: "",
   }
   const [formValues, setFormValues] = useState(initialState)
-
   useEffect(() => {
     const updateCourse = async () => {
       const data = await ShowCourse(courseId)
@@ -34,9 +33,9 @@ const UpdateCourse = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await EditCourse(formValues)
+    await EditCourse(courseId, formValues)
     setFormValues(initialState)
-    navigate("/")
+    navigate(`/courses/${courseId}`)
   }
 
   return (
@@ -47,7 +46,6 @@ const UpdateCourse = () => {
           <TextField
             required
             label="Course Title"
-            placeholder="Enter a clear course title"
             name="title"
             type="text"
             onChange={handleChange}
@@ -56,7 +54,6 @@ const UpdateCourse = () => {
           <TextField
             required
             label="Description"
-            placeholder="Provide a brief overview of the course content and outcomes"
             name="description"
             type="text"
             multiline
@@ -67,7 +64,6 @@ const UpdateCourse = () => {
           <TextField
             required
             label="Objectives"
-            placeholder="State the main goals of this course"
             name="objective"
             type="text"
             multiline
@@ -78,7 +74,6 @@ const UpdateCourse = () => {
           <TextField
             required
             label="Level"
-            placeholder="e.g. Beginner, Intermediate, Advanced"
             name="level"
             type="text"
             onChange={handleChange}
@@ -87,7 +82,6 @@ const UpdateCourse = () => {
           <TextField
             required
             label="Category"
-            placeholder="Enter a category"
             name="category"
             type="text"
             onChange={handleChange}
