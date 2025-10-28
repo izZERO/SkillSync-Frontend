@@ -9,3 +9,8 @@ export const fetchCurrentUserEnrollments = async () => {
   const response = await Client.get("/enrollments/currentUser")
   return response
 }
+
+export const fetchInstructorCourses = async () => {
+  const response = await Client.get("/courses/instructor")
+  return response
+}

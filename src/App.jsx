@@ -10,6 +10,7 @@ import Login from "./pages/Login"
 import Home from "./pages/Home"
 import AddCourse from "./pages/AddCourse"
 import StudentDashboard from "./pages/StudentDashboard"
+import InstructorDashboard from "./pages/InstructorDashboard"
 import "./App.css"
 
 const App = () => {
@@ -51,7 +52,7 @@ const App = () => {
           <Route
             path="/instructorDashboard"
             element={
-              user?.role === "instructor  " ? (
+              user?.role === "instructor" ? (
                 <InstructorDashboard />
               ) : (
                 <Unauthorized />
