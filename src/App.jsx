@@ -7,11 +7,10 @@ import Nav from "./components/Nav"
 import Unauthorized from "./pages/Unauthorized"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
-import StudentDashboard from "./pages/StudentDashboard"
-
-import "./App.css"
-
 import Home from "./pages/Home"
+import AddCourse from "./pages/AddCourse"
+import StudentDashboard from "./pages/StudentDashboard"
+import "./App.css"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -59,9 +58,10 @@ const App = () => {
               )
             }
           />
-          {/*<Route path="/course/:courseId" element={<CourseDetails />}></Route>
           <Route path="/addcourse" element={<AddCourse />}></Route>
-          <Route
+          {/*<Route path="/course/:courseId" element={<CourseDetails />}></Route>
+
+          {/* <Route
             path="/course/:courseId/update"
             element={<UpdateCourse />}
           ></Route>
