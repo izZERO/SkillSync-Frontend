@@ -28,13 +28,15 @@ const StudentDashboard = () => {
         </p>
       </Stack>
       <Tabs
-        variant="fullWidth"
+        variant="standard"
         value={tab}
         onChange={handleTabChange}
         sx={{
+          width: "fit-content",
           m: " 0px 40px",
           mt: "40px",
           border: "2px solid rgba(118, 109, 226, 0.2)",
+          borderRadius: "10px",
         }}
       >
         <Tab
