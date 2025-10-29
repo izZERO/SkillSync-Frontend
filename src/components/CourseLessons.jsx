@@ -17,7 +17,7 @@ import Markdown from "react-markdown"
 const CourseLessons = ({ courseId, enrollmentId, progress }) => {
   const [lessons, setLessons] = useState(null)
   const updateProgress = {
-    progress: "",
+    progress: 0,
   }
   const [newProgress, setNewProgress] = useState(updateProgress)
 
