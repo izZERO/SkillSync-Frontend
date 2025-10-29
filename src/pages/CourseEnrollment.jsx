@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { getCourseEnrolled } from "../services/enroll.js"
 
 import * as React from "react"
@@ -35,6 +36,11 @@ const CourseEnrollment = () => {
   return (
     <>
       <div className="course-details-page">
+        <Link to={"../StudentDashboard"}>
+          <Button variant="outlined" className="btn-back">
+            Back Dashboard
+          </Button>
+        </Link>
         <div className="course-header">
           <h1 className="course-title">{details.title}</h1>
           <div className="course-buttons">

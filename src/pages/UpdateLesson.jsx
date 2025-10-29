@@ -32,8 +32,10 @@ const UpdateLesson = () => {
   }, [lessonId])
 
   const handleChange = (e) => {
-    if (e.target.type === "number" && e.target.value > 0) {
-      setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    if (e.target.type === "number") {
+      if (e.target.value > 0) {
+        setFormValues({ ...formValues, [e.target.name]: e.target.value })
+      }
     } else {
       setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
