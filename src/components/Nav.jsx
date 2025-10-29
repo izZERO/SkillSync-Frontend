@@ -90,15 +90,6 @@ const Nav = ({ user, handleLogOut }) => {
                   Profile
                 </MenuItem>
 
-                <MenuItem
-                  onClick={handleMenuClose}
-                  component={Link}
-                  to="/updatePassword"
-                >
-                  <LockReset sx={{ mr: 1 }} />
-                  Update Password
-                </MenuItem>
-
                 <MenuItem onClick={handleLogout}>
                   <ExitToApp sx={{ mr: 1 }} />
                   Logout
