@@ -75,7 +75,6 @@ const CourseEnrollment = () => {
             >
               <Tab label="About" value="1" />
               <Tab label="Content" value="2" />
-              <Tab label="Rating & Review" value="3" />
             </TabList>
           </Box>
           <TabPanel value="1" className="custom-tab-panel">
@@ -83,9 +82,6 @@ const CourseEnrollment = () => {
           </TabPanel>
           <TabPanel value="2" className="custom-tab-panel">
             <EnrollLessons courseId={details._id} enrollmentId={id} />
-          </TabPanel>
-          <TabPanel value="3" className="custom-tab-panel">
-            Item Three
           </TabPanel>
         </TabContext>
       </div>
