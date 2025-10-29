@@ -263,6 +263,86 @@ canvas {
   margin-bottom: 20px;
 }
 
+/* LOGIN DESIGN */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #00000074;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-img {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: -20px;
+}
+
+.login-form {
+  display: flex;
+  margin-top: -60px;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.login-field {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.login-button {
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  padding: 8px 24px !important;
+  font-weight: 500 !important;
+  margin-top: 10px !important;
+}
+
+.login-button:disabled {
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  background: transparent !important;
+  cursor: not-allowed !important;
+}
+
+.login-button:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease-in-out;
+}
+
+.auth-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 .course-details-page {
   color: white;
   min-height: 100vh;

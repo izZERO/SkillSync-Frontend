@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Route, Routes, useNavigate } from "react-router"
+import { Route, Routes } from "react-router"
 import { CheckSession } from "./services/auth"
 
 import Nav from "./components/Nav"
@@ -7,6 +7,7 @@ import Nav from "./components/Nav"
 import Unauthorized from "./pages/Unauthorized"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
+import UpdatePassword from "./pages/UpdatePassword.jsx"
 import Home from "./pages/Home"
 import AddCourse from "./pages/AddCourse"
 import CourseDetails from "./pages/CourseDetails"
@@ -20,7 +21,6 @@ import "./App.css"
 const App = () => {
   const [user, setUser] = useState(null)
 
-  let navigate = useNavigate()
   const handleLogOut = () => {
     // Resets all auth related state and clears localStorage
     setUser(null)
@@ -46,6 +46,10 @@ const App = () => {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route
+            path="/updatePassword"
+            element={user ? <UpdatePassword user={user} /> : <Unauthorized />}
+          />
           <Route path="/" element={<Home />} />
           <Route
             path="/studentDashboard"
