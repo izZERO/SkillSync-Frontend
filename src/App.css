@@ -518,6 +518,18 @@ canvas {
   list-style-type: none;
 }
 
+.lesson-content-wrapper code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  background: #f0f1f2;
+  padding: 2px;
+}
+
+.lesson-content-wrapper pre code {
+  background: #f6f8fa;
+}
+
 .lesson-content-wrapper li {
   margin: 4px 0;
 }

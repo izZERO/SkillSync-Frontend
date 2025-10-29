@@ -10,7 +10,7 @@ import TabList from "@mui/lab/TabList"
 import TabPanel from "@mui/lab/TabPanel"
 import Chip from "@mui/material/Chip"
 
-import CourseLessons from "../components/CourseLessons"
+import EnrollLessons from "../components/EnrollLessons"
 
 const CourseEnrollment = () => {
   const { id } = useParams()
@@ -74,7 +74,7 @@ const CourseEnrollment = () => {
             <h5>{details.description}</h5>
           </TabPanel>
           <TabPanel value="2" className="custom-tab-panel">
-            <CourseLessons courseId={details._id} enrollmentId={id} />
+            <EnrollLessons courseId={details._id} enrollmentId={id} />
           </TabPanel>
           <TabPanel value="3" className="custom-tab-panel">
             Item Three

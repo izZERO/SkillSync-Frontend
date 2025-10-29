@@ -22,7 +22,6 @@ const UpdateLesson = () => {
   }
 
   const [formValues, setFormValues] = useState(initialState)
-  const [value, setValue] = React.useState(initialState)
 
   useEffect(() => {
     const getALesson = async () => {
@@ -33,7 +32,11 @@ const UpdateLesson = () => {
   }, [lessonId])
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    if (e.target.type === "number" && e.target.value > 0) {
+      setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    } else {
+      setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -70,9 +73,8 @@ const UpdateLesson = () => {
             name="content"
             required
             value={formValues.content}
-            onChange={setValue}
-            textareaProps={{
-              placeholder: "Please enter Markdown text",
+            onChange={(value) => {
+              setFormValues({ ...formValues, content: value })
             }}
           />
           <Button variant="contained" endIcon={<SendIcon />} type="submit">

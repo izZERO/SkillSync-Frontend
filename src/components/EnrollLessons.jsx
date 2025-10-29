@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { GetAllLessons } from "../services/lesson.js"
 import { DeleteLesson } from "../services/lesson.js"
+import { updateEnrollment } from "../services/enroll.js"
+import { getCourseEnrolled } from "../services/enroll.js"
 
 import Accordion from "@mui/material/Accordion"
 import AccordionActions from "@mui/material/AccordionActions"
@@ -14,8 +16,9 @@ import Button from "@mui/material/Button"
 
 import Markdown from "react-markdown"
 
-const CourseLessons = ({ courseId, user }) => {
+const EnrollLessons = ({ courseId, user, enrollmentId }) => {
   const [lessons, setLessons] = useState(null)
+  const [studentProgress, setStudentProgress] = useState("")
   let navigate = useNavigate()
 
   useEffect(() => {
@@ -27,9 +30,25 @@ const CourseLessons = ({ courseId, user }) => {
     getDetailsByCourse()
   }, [courseId])
 
+  useEffect(() => {
+    const getProgressByEnrollment = async () => {
+      const data = await getCourseEnrolled(enrollmentId)
+      setStudentProgress(data.progress)
+    }
+    getProgressByEnrollment()
+  }, [enrollmentId])
+
   const handleDelete = async (id) => {
     await DeleteLesson(courseId, id)
     navigate("/instructorDashboard")
+  }
+
+  const handleProgress = async () => {
+    if (lessons.length >= studentProgress) {
+      const data = { progress: studentProgress + 1 }
+      await updateEnrollment(enrollmentId, data)
+      navigate("/studentDashboard")
+    }
   }
 
   return (
@@ -60,11 +79,21 @@ const CourseLessons = ({ courseId, user }) => {
                 Delete
               </Button>
             </AccordionActions>
-          ) : null}
+          ) : (
+            <AccordionActions>
+              <Button
+                onClick={() => {
+                  handleProgress()
+                }}
+              >
+                Complete
+              </Button>
+            </AccordionActions>
+          )}
         </Accordion>
       ))}
     </>
   )
 }
 
-export default CourseLessons
+export default EnrollLessons

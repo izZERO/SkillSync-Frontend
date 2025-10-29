@@ -29,6 +29,8 @@ const AddLesson = () => {
   const handleChange = (e) => {
     if (e.target.type === "number" && e.target.value > 0) {
       setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    } else {
+      setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
   }
   useEffect(() => {
