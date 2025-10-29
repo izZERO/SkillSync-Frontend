@@ -9,7 +9,7 @@ import LogoutIcon from "@mui/icons-material/Logout"
 import ProfileText from "../components/ProfileText"
 import UpdateProfile from "../components/UpdateProfile"
 
-const Profile = () => {
+const Profile = ({ handleLogOut }) => {
   const navigate = useNavigate()
   const [profile, setProfile] = useState(null)
   const [toggleModal, setToggleModal] = useState(false)
@@ -123,7 +123,8 @@ const Profile = () => {
               variant="outlined"
               startIcon={<LogoutIcon />}
               onClick={() => {
-                // handle logout
+                handleLogOut()
+                navigate("/")
               }}
               sx={{
                 color: "#ff6b6b",

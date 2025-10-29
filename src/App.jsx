@@ -55,7 +55,9 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route
             path="/profile"
-            element={user ? <Profile /> : <Unauthorized />}
+            element={
+              user ? <Profile handleLogOut={handleLogOut} /> : <Unauthorized />
+            }
           />
           <Route
             path="/studentDashboard"
