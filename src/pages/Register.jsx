@@ -30,7 +30,13 @@ const Register = () => {
   return (
     <>
       <div className="login-container">
-        <div className="login-area">
+        <div
+          className="login-area"
+          style={{
+            height: "90vh",
+            paddingBottom: "130px",
+          }}
+        >
           <img
             src={`${BASE_URL}/public/images/skillsynclogo.png`}
             className="login-img"
