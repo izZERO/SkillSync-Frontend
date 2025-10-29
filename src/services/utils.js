@@ -1,5 +1,23 @@
 import Client from "./api"
 
+export const GetUserProfile = async () => {
+  try {
+    const response = await Client.get("/profile")
+    return response
+  } catch (error) {
+    throw error
+  }
+}
+
+export const updateProfile = async (formData) => {
+  try {
+    const response = await Client.put("/profile/update", formData)
+    return response
+  } catch (error) {
+    throw error
+  }
+}
+
 export const fetchAllCourses = async () => {
   const response = await Client.get("/courses")
   return response
