@@ -24,6 +24,7 @@ const CourseLessons = ({ courseId, user, enrollmentId }) => {
   useEffect(() => {
     const getDetailsByCourse = async () => {
       const data = await GetAllLessons(courseId)
+
       setLessons(data)
     }
     getDetailsByCourse()

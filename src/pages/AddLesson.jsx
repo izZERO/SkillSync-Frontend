@@ -27,7 +27,9 @@ const AddLesson = () => {
   const [value, setValue] = React.useState("")
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    if (e.target.type === "number" && e.target.value > 0) {
+      setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    }
   }
   useEffect(() => {
     const getDetailsByCourse = async () => {

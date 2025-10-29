@@ -9,6 +9,15 @@ export const getCourseEnrolled = async (id) => {
   }
 }
 
+export const enrollmentCourse = async (data) => {
+  try {
+    const res = await Client.post("/enrollments", data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const updateEnrollment = async (id, data) => {
   try {
     const res = await Client.put(`/enrollments/${id}`, data)

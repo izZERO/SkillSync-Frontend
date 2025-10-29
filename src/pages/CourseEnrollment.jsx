@@ -9,7 +9,6 @@ import TabContext from "@mui/lab/TabContext"
 import TabList from "@mui/lab/TabList"
 import TabPanel from "@mui/lab/TabPanel"
 import Chip from "@mui/material/Chip"
-import ProgressBar from "../components/ProgressBar"
 
 import CourseLessons from "../components/CourseLessons"
 
@@ -39,12 +38,17 @@ const CourseEnrollment = () => {
         <div className="course-header">
           <h1 className="course-title">{details.title}</h1>
           <div className="course-buttons">
-            {progressData.progress && (
-              <ProgressBar
+            {progressData.progress === 0 ? (
+              <progress value={0} />
+            ) : (
+              <progress
                 value={progressData.progress}
                 max={details.lessons?.length}
               />
             )}
+            <p>
+              {progressData.progress}/{details.lessons?.length}
+            </p>
           </div>
         </div>
 

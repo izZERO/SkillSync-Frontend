@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { ShowCourse } from "../services/utils.js"
 import { DeleteCourse } from "../services/utils.js"
+import { enrollmentCourse } from "../services/enroll.js"
 
 import * as React from "react"
 import Box from "@mui/material/Box"
@@ -40,6 +41,13 @@ const CourseDetails = ({ user }) => {
     navigate("/courses")
   }
 
+  const handleEnrollment = async () => {
+    const userId = user.id
+    const data = { courseId, userId }
+    await enrollmentCourse(data)
+    navigate("/StudentDashboard")
+  }
+
   return (
     <>
       <div className="course-details-page">
@@ -66,7 +74,10 @@ const CourseDetails = ({ user }) => {
               <Button
                 variant="contained"
                 color="success"
-                className="enroll-header-btn"
+                className="btn-enroll"
+                onClick={() => {
+                  handleEnrollment()
+                }}
               >
                 Enroll
               </Button>
@@ -91,7 +102,6 @@ const CourseDetails = ({ user }) => {
               {user?.role === "instructor" ? (
                 <Tab label="Content" value="2" />
               ) : null}
-              <Tab label="Rating & Review" value="3" />
             </TabList>
           </Box>
           <TabPanel value="1" className="custom-tab-panel">
@@ -103,10 +113,7 @@ const CourseDetails = ({ user }) => {
                 Add your Lessons
               </Button>
             </Link>
-            <CourseLessons courseId={details._id} />
-          </TabPanel>
-          <TabPanel value="3" className="custom-tab-panel">
-            Item Three
+            <CourseLessons courseId={details._id} user={user} />
           </TabPanel>
         </TabContext>
       </div>
