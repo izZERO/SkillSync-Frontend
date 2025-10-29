@@ -47,3 +47,5 @@ platform where instructors can create and manage courses with lessons, and stude
 
 
 ### ***Credits***
+#### [Sort by specific field](https://stackoverflow.com/questions/25058007/mongodb-difference-between-orderby-and-sort)
+#### [handleChange TextField](https://stackoverflow.com/questions/77866041/markdown-editor-updating-state-issue-react-next-js)
