@@ -13,6 +13,7 @@ import CloseIcon from "@mui/icons-material/Close"
 import PersonIcon from "@mui/icons-material/Person"
 import EmailIcon from "@mui/icons-material/Email"
 import InboxIcon from "@mui/icons-material/Inbox"
+import PhotoCamera from "@mui/icons-material/PhotoCamera"
 
 import { updateProfile } from "../services/utils"
 
@@ -27,6 +28,7 @@ const UpdateProfile = ({
     email: profile?.email,
     bio: profile?.bio,
   })
+  const [selectedFile, setSelectedFile] = useState(null)
 
   useEffect(() => {
     if (profile) {
@@ -35,6 +37,7 @@ const UpdateProfile = ({
         email: profile.email,
         bio: profile.bio,
       })
+      setSelectedFile(null)
     }
   }, [profile])
 
@@ -45,10 +48,22 @@ const UpdateProfile = ({
     })
   }
 
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0])
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await updateProfile(formData)
+      const data = new FormData()
+      data.append("name", formData.name)
+      data.append("email", formData.email)
+      data.append("bio", formData.bio)
+      if (selectedFile) {
+        data.append("profilePicture", selectedFile)
+      }
+
+      await updateProfile(data)
       onProfileUpdate()
       handleToggle()
     } catch (error) {
@@ -181,6 +196,26 @@ const UpdateProfile = ({
                 },
               }}
             />
+
+            <Button
+              variant="outlined"
+              component="label"
+              startIcon={<PhotoCamera />}
+              sx={{
+                color: "white",
+                borderColor: "rgba(118, 109, 226, 0.3)",
+                borderRadius: "12px",
+                padding: "12px 16px",
+                textTransform: "none",
+                "&:hover": {
+                  borderColor: "rgba(118, 109, 226, 0.6)",
+                  backgroundColor: "rgba(118, 109, 226, 0.1)",
+                },
+              }}
+            >
+              {selectedFile ? selectedFile.name : "Upload Profile Picture"}
+              <input type="file" hidden onChange={handleFileChange} />
+            </Button>
           </Stack>
 
           <Stack mt={3} justifyContent="flex-end">

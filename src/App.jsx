@@ -55,7 +55,13 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route
             path="/profile"
-            element={user ? <Profile /> : <Unauthorized />}
+            element={
+              user ? (
+                <Profile handleLogOut={handleLogOut} setUser={setUser} />
+              ) : (
+                <Unauthorized />
+              )
+            }
           />
           <Route
             path="/studentDashboard"
