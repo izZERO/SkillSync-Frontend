@@ -10,11 +10,7 @@ import TabContext from "@mui/lab/TabContext"
 import TabList from "@mui/lab/TabList"
 import TabPanel from "@mui/lab/TabPanel"
 import Chip from "@mui/material/Chip"
-<<<<<<< HEAD
-import Button from "@mui/material/Button"
-=======
 import { Button } from "@mui/material"
->>>>>>> 44c3114e1b7c13a61deeb48fd0123f8a1645217c
 
 import EnrollLessons from "../components/EnrollLessons"
 
