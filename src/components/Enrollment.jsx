@@ -83,7 +83,7 @@ const Enrollment = ({ enrollment }) => {
               {/* Right side - Avatar */}
               <Avatar
                 src={`${BASE_URL}/${enrollment?.courseId?.instructor?.profilePicture}`}
-                alt={enrollment?.instructor?.name}
+                alt={enrollment?.courseId?.instructor?.name}
                 sx={{
                   width: 40,
                   height: 40,
