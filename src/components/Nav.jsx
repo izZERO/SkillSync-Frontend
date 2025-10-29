@@ -40,7 +40,11 @@ const Nav = ({ user, handleLogOut }) => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Box
           component={Link}
-          to="/"
+          to={
+            user.role === "student"
+              ? "/studentDashboard"
+              : "instructorDashboard"
+          }
           sx={{
             display: "flex",
             alignItems: "center",
