@@ -38,7 +38,7 @@ const CourseDetails = ({ user }) => {
 
   const handleDelete = async () => {
     await DeleteCourse(details._id)
-    navigate("/courses")
+    navigate("/InstructorDashboard")
   }
 
   const handleEnrollment = async () => {
