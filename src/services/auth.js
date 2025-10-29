@@ -29,3 +29,15 @@ export const CheckSession = async () => {
     throw error
   }
 }
+
+export const updatePassword = async (data) => {
+  try {
+    const res = await Client.put(`/auth/update/${data.id}`, {
+      oldPassword: data.currentPassword,
+      newPassword: data.newPassword,
+    })
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
