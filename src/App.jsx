@@ -13,7 +13,8 @@ import CourseDetails from "./pages/CourseDetails"
 import UpdateCourse from "./pages/UpdateCourse.jsx"
 import StudentDashboard from "./pages/StudentDashboard"
 import InstructorDashboard from "./pages/InstructorDashboard"
-import AddLesson from "./pages/AddLesson.jsx"
+import AddLesson from "./pages/AddLesson"
+import UpdateLesson from "./pages/UpdateLesson"
 import "./App.css"
 
 const App = () => {
@@ -69,11 +70,8 @@ const App = () => {
           />
           <Route path="/courses/:courseId/edit" element={<UpdateCourse />} />
           <Route path="/courses/:courseId/lessons" element={<AddLesson />} />
-          {/*<Route
-            path="/lesson/:lessonId/update"
-            element={<UpdateLesson />}
-          ></Route>
-          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/lesson/:lessonId/edit" element={<UpdateLesson />} />
+          {/*<Route path="/profile" element={<Profile />}></Route>
           <Route
             path="/profile/information"
             element={<UpdateInformation />}

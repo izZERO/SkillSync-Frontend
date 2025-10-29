@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { GetAllLessons } from "../services/lesson.js"
 import { DeleteLesson } from "../services/lesson.js"
 
@@ -42,11 +43,14 @@ const AllLessons = ({ courseId }) => {
             <Typography component="span">{lesson.title}</Typography>
           </AccordionSummary>
 
-          <AccordionDetails>
+          <AccordionDetails className="lesson-content-wrapper">
             <Markdown>{lesson.content}</Markdown>
           </AccordionDetails>
+
           <AccordionActions>
-            <Button>Edit</Button>
+            <Link to={`/lesson/${lesson._id}/edit`}>
+              <Button>Edit</Button>
+            </Link>
             <Button
               onClick={() => {
                 handleDelete(lesson._id)

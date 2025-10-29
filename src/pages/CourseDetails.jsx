@@ -62,6 +62,15 @@ const CourseDetails = ({ user }) => {
                 </Button>
               </>
             ) : null}
+            {user?.role !== "instructor" ? (
+              <Button
+                variant="contained"
+                color="success"
+                className="enroll-header-btn"
+              >
+                Enroll
+              </Button>
+            ) : null}
           </div>
         </div>
 
@@ -71,11 +80,6 @@ const CourseDetails = ({ user }) => {
           <Chip className="chip-level" label={details.level} />
           <Chip className="chip-category" label={details.category} />
         </div>
-
-        <Button variant="contained" color="success" className="btn-enroll">
-          Enroll
-        </Button>
-
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList
@@ -84,7 +88,9 @@ const CourseDetails = ({ user }) => {
               className="custom-tab-list"
             >
               <Tab label="About" value="1" />
-              <Tab label="Content" value="2" />
+              {user?.role === "instructor" ? (
+                <Tab label="Content" value="2" />
+              ) : null}
               <Tab label="Rating & Review" value="3" />
             </TabList>
           </Box>
