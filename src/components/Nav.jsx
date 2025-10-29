@@ -9,7 +9,7 @@ import Menu from "@mui/material/Menu"
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import MenuItem from "@mui/material/MenuItem"
-import { ExitToApp, Person } from "@mui/icons-material"
+import { ExitToApp, Person, LockReset } from "@mui/icons-material"
 
 const Nav = ({ user, handleLogOut }) => {
   const navigate = useNavigate()
@@ -89,6 +89,16 @@ const Nav = ({ user, handleLogOut }) => {
                   <Person sx={{ mr: 1 }} />
                   Profile
                 </MenuItem>
+
+                <MenuItem
+                  onClick={handleMenuClose}
+                  component={Link}
+                  to="/updatePassword"
+                >
+                  <LockReset sx={{ mr: 1 }} />
+                  Update Password
+                </MenuItem>
+
                 <MenuItem onClick={handleLogout}>
                   <ExitToApp sx={{ mr: 1 }} />
                   Logout
