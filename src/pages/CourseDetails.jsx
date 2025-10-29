@@ -14,7 +14,9 @@ import TabPanel from "@mui/lab/TabPanel"
 import Chip from "@mui/material/Chip"
 import Button from "@mui/material/Button"
 
-const CourseDetails = () => {
+import AllLessons from "../components/AllLessons.jsx"
+
+const CourseDetails = ({ user }) => {
   const { courseId } = useParams()
   let navigate = useNavigate()
 
@@ -44,18 +46,22 @@ const CourseDetails = () => {
         <div className="course-header">
           <h1 className="course-title">{details.title}</h1>
           <div className="course-buttons">
-            <Link to={`/courses/${details._id}/edit`}>
-              <Button variant="contained">Edit Course</Button>
-            </Link>
-            <Button
-              variant="contained"
-              color="error"
-              onClick={() => {
-                handleDelete()
-              }}
-            >
-              Delete Course
-            </Button>
+            {user?.role === "instructor" ? (
+              <>
+                <Link to={`/courses/${details._id}/edit`}>
+                  <Button variant="contained">Edit Course</Button>
+                </Link>
+                <Button
+                  variant="contained"
+                  color="error"
+                  onClick={() => {
+                    handleDelete()
+                  }}
+                >
+                  Delete Course
+                </Button>
+              </>
+            ) : null}
           </div>
         </div>
 
@@ -86,7 +92,12 @@ const CourseDetails = () => {
             <h5>{details.description}</h5>
           </TabPanel>
           <TabPanel value="2" className="custom-tab-panel">
-            Item Two
+            <Link to={`/courses/${details._id}/lessons`}>
+              <Button variant="contained" className="new-lessons-btn">
+                Add your Lessons
+              </Button>
+            </Link>
+            <AllLessons courseId={details._id} />
           </TabPanel>
           <TabPanel value="3" className="custom-tab-panel">
             Item Three

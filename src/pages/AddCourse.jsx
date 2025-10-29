@@ -86,7 +86,7 @@ const AddCourse = () => {
             value={formValues.category}
           />
           <Button variant="contained" endIcon={<SendIcon />} type="submit">
-            Add Lessons
+            Add Course
           </Button>
         </form>
       </div>
