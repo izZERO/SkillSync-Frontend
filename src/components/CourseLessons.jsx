@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { GetAllLessons } from "../services/lesson.js"
-import { DeleteLesson } from "../services/lesson.js"
+import { updateEnrollment } from "../services/enroll.js"
 
 import Accordion from "@mui/material/Accordion"
 import AccordionActions from "@mui/material/AccordionActions"
@@ -14,8 +14,10 @@ import Button from "@mui/material/Button"
 
 import Markdown from "react-markdown"
 
-const AllLessons = ({ courseId, user }) => {
+const CourseLessons = ({ courseId, enrollmentId, progress }) => {
   const [lessons, setLessons] = useState(null)
+  const [newProgress, setNewProgress] = useState(0)
+
   let navigate = useNavigate()
 
   useEffect(() => {
@@ -26,9 +28,13 @@ const AllLessons = ({ courseId, user }) => {
     getDetailsByCourse()
   }, [courseId])
 
-  const handleDelete = async (id) => {
-    await DeleteLesson(courseId, id)
-    navigate("/instructorDashboard")
+  const handleLesson = async () => {
+    const lessonLength = lessons.length
+    // const currentProgress = progress
+    console.log(progress)
+    const data = progress + 1
+    setNewProgress(data)
+    await updateEnrollment(enrollmentId, newProgress)
   }
 
   return (
@@ -46,24 +52,19 @@ const AllLessons = ({ courseId, user }) => {
           <AccordionDetails className="lesson-content-wrapper">
             <Markdown>{lesson.content}</Markdown>
           </AccordionDetails>
-          {user?.role === "instructor" ? (
-            <AccordionActions>
-              <Link to={`/lesson/${lesson._id}/edit`}>
-                <Button>Edit</Button>
-              </Link>
-              <Button
-                onClick={() => {
-                  handleDelete(lesson._id)
-                }}
-              >
-                Delete
-              </Button>
-            </AccordionActions>
-          ) : null}
+          <AccordionActions>
+            <Button
+              onClick={() => {
+                handleLesson()
+              }}
+            >
+              Complete
+            </Button>
+          </AccordionActions>
         </Accordion>
       ))}
     </>
   )
 }
 
-export default AllLessons
+export default CourseLessons

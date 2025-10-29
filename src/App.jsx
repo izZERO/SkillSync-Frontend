@@ -16,6 +16,7 @@ import StudentDashboard from "./pages/StudentDashboard"
 import InstructorDashboard from "./pages/InstructorDashboard"
 import AddLesson from "./pages/AddLesson"
 import UpdateLesson from "./pages/UpdateLesson"
+import CourseEnrollment from "./pages/CourseEnrollment.jsx"
 import "./App.css"
 
 const App = () => {
@@ -75,6 +76,10 @@ const App = () => {
           <Route path="/courses/:courseId/edit" element={<UpdateCourse />} />
           <Route path="/courses/:courseId/lessons" element={<AddLesson />} />
           <Route path="/lesson/:lessonId/edit" element={<UpdateLesson />} />
+          <Route
+            path="/enrollments/:id"
+            element={<CourseEnrollment user={user} />}
+          />
           {/*<Route path="/profile" element={<Profile />}></Route>
           <Route
             path="/profile/information"
