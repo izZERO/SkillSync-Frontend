@@ -11,7 +11,11 @@ export const GetUserProfile = async () => {
 
 export const updateProfile = async (formData) => {
   try {
-    const response = await Client.put("/profile/update", formData)
+    const response = await Client.put("/profile/update", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
     return response
   } catch (error) {
     throw error

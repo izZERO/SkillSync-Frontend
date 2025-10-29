@@ -56,7 +56,11 @@ const App = () => {
           <Route
             path="/profile"
             element={
-              user ? <Profile handleLogOut={handleLogOut} /> : <Unauthorized />
+              user ? (
+                <Profile handleLogOut={handleLogOut} setUser={setUser} />
+              ) : (
+                <Unauthorized />
+              )
             }
           />
           <Route

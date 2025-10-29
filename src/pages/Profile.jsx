@@ -9,7 +9,7 @@ import LogoutIcon from "@mui/icons-material/Logout"
 import ProfileText from "../components/ProfileText"
 import UpdateProfile from "../components/UpdateProfile"
 
-const Profile = ({ handleLogOut }) => {
+const Profile = ({ handleLogOut, setUser }) => {
   const navigate = useNavigate()
   const [profile, setProfile] = useState(null)
   const [toggleModal, setToggleModal] = useState(false)
@@ -21,6 +21,7 @@ const Profile = ({ handleLogOut }) => {
   const fetchUserData = async () => {
     const response = await GetUserProfile()
     setProfile(response.data)
+    setUser(response.data)
   }
 
   useEffect(() => {
