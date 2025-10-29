@@ -436,6 +436,7 @@ canvas {
   font-size: 1.1rem;
   font-weight: 400;
   opacity: 0.9;
+  white-space: pre-wrap;
 }
 
 .add-course-container {
@@ -554,4 +555,11 @@ canvas {
 .my-progress::-moz-progress-bar {
   background-color: #274a58;
   border-radius: 4px;
+}
+
+.btn-back {
+  border-color: #ffa726 !important;
+  color: white !important;
+  text-decoration: none !important;
+  margin-bottom: 20px !important;
 }

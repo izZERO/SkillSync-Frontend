@@ -51,6 +51,19 @@ const CourseDetails = ({ user }) => {
   return (
     <>
       <div className="course-details-page">
+        {user?.role === "instructor" ? (
+          <Link to={"../InstructorDashboard"}>
+            <Button variant="outlined" className="btn-back">
+              Back Dashboard
+            </Button>
+          </Link>
+        ) : (
+          <Link to={"../StudentDashboard"}>
+            <Button variant="outlined" className="btn-back">
+              Back Dashboard
+            </Button>
+          </Link>
+        )}
         <div className="course-header">
           <h1 className="course-title">{details.title}</h1>
           <div className="course-buttons">
