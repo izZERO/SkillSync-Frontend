@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
 import { Route, Routes } from "react-router"
 import { CheckSession } from "./services/auth"
+
 import Nav from "./components/Nav"
-import Profile from "./pages/Profile"
+
 import Unauthorized from "./pages/Unauthorized"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
 import UpdatePassword from "./pages/UpdatePassword.jsx"
 import Home from "./pages/Home"
+import Profile from "./pages/Profile"
 import AddCourse from "./pages/AddCourse"
 import CourseDetails from "./pages/CourseDetails"
 import UpdateCourse from "./pages/UpdateCourse.jsx"
@@ -49,6 +51,10 @@ const App = () => {
           />
           <Route path="/" element={<Home />} />
           <Route
+            path="/profile"
+            element={user ? <Profile /> : <Unauthorized />}
+          />
+          <Route
             path="/studentDashboard"
             element={
               user?.role === "student" ? <StudentDashboard /> : <Unauthorized />
@@ -81,7 +87,6 @@ const App = () => {
         </Routes>
       </main>
     </>
-
   )
 }
 
