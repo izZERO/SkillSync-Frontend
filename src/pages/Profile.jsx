@@ -4,7 +4,7 @@ import { GetUserProfile } from "../services/utils"
 import { BASE_URL } from "../services/api"
 import { Avatar, Stack, Typography, Button } from "@mui/material"
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts"
-import LockIcon from "@mui/icons-material/Lock"
+import { LockReset } from "@mui/icons-material"
 import LogoutIcon from "@mui/icons-material/Logout"
 import ProfileText from "../components/ProfileText"
 import UpdateProfile from "../components/UpdateProfile"
@@ -93,7 +93,7 @@ const Profile = () => {
             </Button>
             <Button
               variant="contained"
-              startIcon={<LockIcon />}
+              startIcon={<LockReset />}
               onClick={() => navigate("/updatePassword")}
               sx={{
                 backgroundColor: "#4a5568",
