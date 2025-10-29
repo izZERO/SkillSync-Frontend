@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { Link } from "react-router-dom"
 import { getCourseEnrolled } from "../services/enroll.js"
 
 import * as React from "react"
@@ -11,7 +9,7 @@ import TabContext from "@mui/lab/TabContext"
 import TabList from "@mui/lab/TabList"
 import TabPanel from "@mui/lab/TabPanel"
 import Chip from "@mui/material/Chip"
-import Button from "@mui/material/Button"
+import ProgressBar from "../components/ProgressBar"
 
 import CourseLessons from "../components/CourseLessons"
 
@@ -19,7 +17,7 @@ const CourseEnrollment = () => {
   const { id } = useParams()
 
   const [details, setDetails] = useState([])
-  const [studentProgress, setStudentProgress] = useState("")
+  const [progressData, setProgress] = useState([])
   const [value, setValue] = React.useState("1")
 
   const handleChange = (event, newValue) => {
@@ -29,7 +27,7 @@ const CourseEnrollment = () => {
   useEffect(() => {
     const getDetailsByCourse = async () => {
       const data = await getCourseEnrolled(id)
-      setStudentProgress(data.progress)
+      setProgress(data)
       setDetails(data.courseId)
     }
     getDetailsByCourse()
@@ -40,14 +38,20 @@ const CourseEnrollment = () => {
       <div className="course-details-page">
         <div className="course-header">
           <h1 className="course-title">{details.title}</h1>
-          <div className="course-buttons"></div>
+          <div className="course-buttons">
+            {progressData.progress && (
+              <ProgressBar
+                value={progressData.progress}
+                max={details.lessons?.length}
+              />
+            )}
+          </div>
         </div>
 
         <h3 className="course-description">{details.objective}</h3>
 
         <div className="chips-container">
           <Chip className="chip-level" label={details.level} />
-          <Chip label={studentProgress} />
           <Chip className="chip-category" label={details.category} />
         </div>
         <TabContext value={value}>
@@ -66,11 +70,7 @@ const CourseEnrollment = () => {
             <h5>{details.description}</h5>
           </TabPanel>
           <TabPanel value="2" className="custom-tab-panel">
-            <CourseLessons
-              courseId={details._id}
-              enrollmentId={id}
-              progress={studentProgress}
-            />
+            <CourseLessons courseId={details._id} enrollmentId={id} />
           </TabPanel>
           <TabPanel value="3" className="custom-tab-panel">
             Item Three

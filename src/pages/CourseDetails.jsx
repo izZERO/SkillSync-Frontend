@@ -14,7 +14,7 @@ import TabPanel from "@mui/lab/TabPanel"
 import Chip from "@mui/material/Chip"
 import Button from "@mui/material/Button"
 
-import AllLessons from "../components/AllLessons.jsx"
+import CourseLessons from "../components/CourseLessons.jsx"
 
 const CourseDetails = ({ user }) => {
   const { courseId } = useParams()
@@ -103,7 +103,7 @@ const CourseDetails = ({ user }) => {
                 Add your Lessons
               </Button>
             </Link>
-            <AllLessons courseId={details._id} />
+            <CourseLessons courseId={details._id} />
           </TabPanel>
           <TabPanel value="3" className="custom-tab-panel">
             Item Three

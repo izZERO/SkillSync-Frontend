@@ -11,11 +11,7 @@ export const getCourseEnrolled = async (id) => {
 
 export const updateEnrollment = async (id, data) => {
   try {
-    console.log("data sent", data)
-
     const res = await Client.put(`/enrollments/${id}`, data)
-    console.log(res.data)
-
     return res.data
   } catch (error) {
     throw error
