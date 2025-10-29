@@ -16,7 +16,10 @@ import Markdown from "react-markdown"
 
 const CourseLessons = ({ courseId, enrollmentId, progress }) => {
   const [lessons, setLessons] = useState(null)
-  const [newProgress, setNewProgress] = useState(0)
+  const updateProgress = {
+    progress: "",
+  }
+  const [newProgress, setNewProgress] = useState(updateProgress)
 
   let navigate = useNavigate()
 
@@ -28,12 +31,13 @@ const CourseLessons = ({ courseId, enrollmentId, progress }) => {
     getDetailsByCourse()
   }, [courseId])
 
-  const handleLesson = async () => {
-    const lessonLength = lessons.length
-    // const currentProgress = progress
-    console.log(progress)
+  const handleProgress = async () => {
     const data = progress + 1
     setNewProgress(data)
+    console.log(newProgress)
+  }
+
+  const handleLesson = async () => {
     await updateEnrollment(enrollmentId, newProgress)
   }
 
@@ -55,6 +59,7 @@ const CourseLessons = ({ courseId, enrollmentId, progress }) => {
           <AccordionActions>
             <Button
               onClick={() => {
+                handleProgress()
                 handleLesson()
               }}
             >
