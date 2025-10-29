@@ -533,3 +533,25 @@ canvas {
 .lesson-content-wrapper li {
   margin: 4px 0;
 }
+
+.my-progress {
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+  background-color: #1976d2;
+}
+
+.my-progress::-webkit-progress-bar {
+  background-color: #274a58;
+  border-radius: 4px;
+}
+
+.my-progress::-webkit-progress-value {
+  background-color: #1976d2;
+  border-radius: 4px;
+}
+
+.my-progress::-moz-progress-bar {
+  background-color: #274a58;
+  border-radius: 4px;
+}

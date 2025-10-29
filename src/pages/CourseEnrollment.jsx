@@ -39,9 +39,10 @@ const CourseEnrollment = () => {
           <h1 className="course-title">{details.title}</h1>
           <div className="course-buttons">
             {progressData.progress === 0 ? (
-              <progress value={0} />
+              <progress className="my-progress" value={0} />
             ) : (
               <progress
+                className="my-progress"
                 value={progressData.progress}
                 max={details.lessons?.length}
               />
