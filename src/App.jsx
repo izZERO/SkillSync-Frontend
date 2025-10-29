@@ -15,6 +15,9 @@ import CourseDetails from "./pages/CourseDetails"
 import UpdateCourse from "./pages/UpdateCourse.jsx"
 import StudentDashboard from "./pages/StudentDashboard"
 import InstructorDashboard from "./pages/InstructorDashboard"
+import AddLesson from "./pages/AddLesson"
+import UpdateLesson from "./pages/UpdateLesson"
+import CourseEnrollment from "./pages/CourseEnrollment.jsx"
 import "./App.css"
 
 const App = () => {
@@ -71,14 +74,18 @@ const App = () => {
             }
           />
           <Route path="/addcourse" element={<AddCourse />} />
-          <Route path="/courses/:courseId" element={<CourseDetails />} />
-          <Route path="/courses/:courseId/edit" element={<UpdateCourse />} />
-          {/*<Route path="/addlessons" element={<AddLessons />}></Route>
           <Route
-            path="/lesson/:lessonId/update"
-            element={<UpdateLesson />}
-          ></Route>
-          <Route path="/profile" element={<Profile />}></Route>
+            path="/courses/:courseId"
+            element={<CourseDetails user={user} />}
+          />
+          <Route path="/courses/:courseId/edit" element={<UpdateCourse />} />
+          <Route path="/courses/:courseId/lessons" element={<AddLesson />} />
+          <Route path="/lesson/:lessonId/edit" element={<UpdateLesson />} />
+          <Route
+            path="/enrollments/:id"
+            element={<CourseEnrollment user={user} />}
+          />
+          {/*<Route path="/profile" element={<Profile />}></Route>
           <Route
             path="/profile/information"
             element={<UpdateInformation />}

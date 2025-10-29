@@ -473,3 +473,85 @@ canvas {
 .link-course-details {
   text-decoration: none;
 }
+
+/* content tab */
+.new-lessons-btn {
+  position: relative !important;
+  left: 85% !important;
+  margin-bottom: 20px !important;
+}
+
+.lesson-content-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 0 10%;
+}
+
+.lesson-content-wrapper * {
+  max-width: 100%;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.lesson-content-wrapper img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 8px 0;
+  border-radius: 6px;
+}
+
+.lesson-content-wrapper pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  background: #f6f8fa;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.lesson-content-wrapper ul,
+.lesson-content-wrapper ol {
+  padding-left: 0 10px;
+  margin: 8px 0;
+  list-style-type: none;
+}
+
+.lesson-content-wrapper code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  background: #f0f1f2;
+  padding: 2px;
+}
+
+.lesson-content-wrapper pre code {
+  background: #f6f8fa;
+}
+
+.lesson-content-wrapper li {
+  margin: 4px 0;
+}
+
+.my-progress {
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+  background-color: #1976d2;
+}
+
+.my-progress::-webkit-progress-bar {
+  background-color: #274a58;
+  border-radius: 4px;
+}
+
+.my-progress::-webkit-progress-value {
+  background-color: #1976d2;
+  border-radius: 4px;
+}
+
+.my-progress::-moz-progress-bar {
+  background-color: #274a58;
+  border-radius: 4px;
+}
