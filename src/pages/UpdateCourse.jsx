@@ -41,7 +41,7 @@ const UpdateCourse = () => {
   return (
     <>
       <div className="add-course-container">
-        <h1>Add a New Course</h1>
+        <h1>Update Course</h1>
         <form onSubmit={handleSubmit} className="add-course-form">
           <TextField
             required
