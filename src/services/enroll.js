@@ -26,3 +26,12 @@ export const updateEnrollment = async (id, data) => {
     throw error
   }
 }
+
+export const deleteEnrollment = async (id) => {
+  try {
+    const res = await Client.delete(`/enrollments/${id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

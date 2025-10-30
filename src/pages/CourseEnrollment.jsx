@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
-import { getCourseEnrolled } from "../services/enroll.js"
+import { getCourseEnrolled, deleteEnrollment } from "../services/enroll.js"
 
 import * as React from "react"
 import Box from "@mui/material/Box"
@@ -14,8 +15,9 @@ import { Button } from "@mui/material"
 
 import EnrollLessons from "../components/EnrollLessons"
 
-const CourseEnrollment = () => {
+const CourseEnrollment = ({ user }) => {
   const { id } = useParams()
+  let navigate = useNavigate()
 
   const [details, setDetails] = useState([])
   const [progressData, setProgress] = useState([])
@@ -23,6 +25,11 @@ const CourseEnrollment = () => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
+  }
+
+  const handleUnEnrollment = async () => {
+    await deleteEnrollment(id)
+    navigate("/studentDashboard")
   }
 
   useEffect(() => {
@@ -62,9 +69,30 @@ const CourseEnrollment = () => {
 
         <h3 className="course-description">{details.objective}</h3>
 
-        <div className="chips-container">
-          <Chip className="chip-level" label={details.level} />
-          <Chip className="chip-category" label={details.category} />
+        <div
+          className="chips-container"
+          style={{ justifyContent: "space-between" }}
+        >
+          <div>
+            <Chip
+              className="chip-level"
+              label={details.level}
+              sx={{ mr: "5px" }}
+            />
+            <Chip className="chip-category" label={details.category} />
+          </div>
+
+          <Button
+            variant="contained"
+            color="error"
+            className="btn-enroll"
+            sx={{ alignSelf: "end" }}
+            onClick={() => {
+              handleUnEnrollment()
+            }}
+          >
+            Withdraw
+          </Button>
         </div>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
