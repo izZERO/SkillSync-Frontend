@@ -8,14 +8,16 @@
 ### Description
 platform where instructors can create and manage courses with lessons, and students can enroll, learn, and track their progress. The website features dashboards for both instructors and students, lesson pages for text content, and real-time progress tracking to enhance online learning efficiency.
 ### ***Technologies***
-* CSS
-* node.js
-* HTML
-* Mongoose
-* express
-* ejs
-* Visual Studio Code
-* React
+* Frontend
+  * React
+  * CSS
+  * Material UI
+  * React Bits
+  * Markdown
+* Backend
+  * Node.js
+  * Mongoose
+  * Express
 ***
 ### ***Project Link***
 #### [GitHub]()
