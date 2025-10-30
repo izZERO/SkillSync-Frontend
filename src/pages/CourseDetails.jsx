@@ -38,14 +38,14 @@ const CourseDetails = ({ user }) => {
 
   const handleDelete = async () => {
     await DeleteCourse(details._id)
-    navigate("/InstructorDashboard")
+    navigate("/instructorDashboard")
   }
 
   const handleEnrollment = async () => {
     const userId = user.id
     const data = { courseId, userId }
     await enrollmentCourse(data)
-    navigate("/StudentDashboard")
+    navigate("/studentDashboard")
   }
 
   return (
