@@ -60,6 +60,11 @@ platform where instructors can create and manage courses with lessons, and stude
 #### Student access to lesson
 ![image](./wireframes/image6.png)
 
+### ***Futures***
+* Course integration with GitHub, ability to use already made lessons on github.
+* Allow the students to know their progress in each course they enroll in.
+* Upload and show lessons as markdown.
+
 ### ***Credits***
 #### [Sort by specific field](https://stackoverflow.com/questions/25058007/mongodb-difference-between-orderby-and-sort)
 #### [handleChange for markdown editor](https://stackoverflow.com/questions/77866041/markdown-editor-updating-state-issue-react-next-js)
