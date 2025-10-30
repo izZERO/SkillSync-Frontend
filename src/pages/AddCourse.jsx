@@ -28,7 +28,7 @@ const AddCourse = () => {
     e.preventDefault()
     await AddNewCourse(formValues)
     setFormValues(initialState)
-    navigate("/InstructorDashboard")
+    navigate("/instructorDashboard")
   }
 
   return (
